@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>Norsk B1</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">NORWEGIAN ROADMAP</div>
+        <h1>Norsk B1</h1>
+      </div>
+      <div class="level-badge" id="levelBadge">A1 → B1</div>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div>
+          <div class="muted">Objetivo</div>
+          <h2>Noruega · marzo/abril 2027</h2>
+          <p id="daysLeft">Calculando...</p>
+        </div>
+        <div class="progress-ring" id="progressRing">
+          <span id="progressPercent">0%</span>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat card">
+          <span class="stat-label">Racha</span>
+          <strong id="streak">0 días</strong>
+        </div>
+        <div class="stat card">
+          <span class="stat-label">Sesiones</span>
+          <strong id="sessions">0</strong>
+        </div>
+        <div class="stat card">
+          <span class="stat-label">Minutos</span>
+          <strong id="minutes">0</strong>
+        </div>
+      </section>
+
+      <section class="card today">
+        <div class="section-title-row">
+          <div>
+            <div class="eyebrow">HOY</div>
+            <h3 id="todayTitle">Sesión diaria</h3>
+          </div>
+          <button class="ghost-btn" id="resetToday">Reiniciar</button>
+        </div>
+        <p class="muted" id="todayGoal"></p>
+        <div id="taskList" class="task-list"></div>
+        <button class="primary-btn" id="completeSession">Completar sesión</button>
+      </section>
+
+      <section class="card">
+        <div class="section-title-row">
+          <div>
+            <div class="eyebrow">SPEAKING</div>
+            <h3>Habla 5 minutos</h3>
+          </div>
+          <button class="ghost-btn" id="newPrompt">Cambiar</button>
+        </div>
+        <p id="speakingPrompt" class="prompt-box"></p>
+        <div class="timer-row">
+          <button class="secondary-btn" id="timerBtn">Iniciar 5:00</button>
+          <span id="timerText">05:00</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title-row">
+          <div>
+            <div class="eyebrow">NORUEGO LABORAL</div>
+            <h3>Frase clave</h3>
+          </div>
+          <button class="ghost-btn" id="newPhrase">Otra</button>
+        </div>
+        <div class="phrase-norwegian" id="phraseNo"></div>
+        <div class="phrase-spanish" id="phraseEs"></div>
+        <button class="secondary-btn" id="speakPhrase">🔊 Escuchar</button>
+      </section>
+
+      <section class="card">
+        <div class="eyebrow">RUTA</div>
+        <h3>Agosto → marzo</h3>
+        <div id="roadmap" class="roadmap"></div>
+      </section>
+
+      <section class="card settings">
+        <div class="eyebrow">AJUSTES</div>
+        <h3>Tu plan</h3>
+        <label>
+          Fecha objetivo
+          <input type="date" id="targetDate" />
+        </label>
+        <label>
+          Minutos diarios
+          <input type="number" min="20" max="180" step="5" id="dailyMinutes" />
+        </label>
+        <button class="secondary-btn" id="saveSettings">Guardar ajustes</button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button data-scroll="today">Hoy</button>
+      <button data-scroll="roadmap">Ruta</button>
+      <button data-scroll="settings">Ajustes</button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
