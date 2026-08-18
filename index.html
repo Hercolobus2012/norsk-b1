@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Norsk B1</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">TU CURSO HASTA MARZO</div>
+      <h1>Norsk B1</h1>
+    </div>
+    <div class="level-badge" id="levelBadge">A1 → B1</div>
+  </header>
+
+  <main>
+    <section class="hero card">
+      <div>
+        <div class="muted">Objetivo</div>
+        <h2>B1 · 31 marzo 2027</h2>
+        <p id="daysLeft">Calculando...</p>
+        <p class="small" id="weekIndicator"></p>
+      </div>
+      <div class="progress-ring" id="progressRing"><span id="progressPercent">0%</span></div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat card"><span class="stat-label">Racha</span><strong id="streak">0 días</strong></div>
+      <div class="stat card"><span class="stat-label">Sesiones</span><strong id="sessions">0</strong></div>
+      <div class="stat card"><span class="stat-label">Semanas</span><strong id="weeksDone">0/33</strong></div>
+    </section>
+
+    <section class="card today" id="today">
+      <div class="section-title-row">
+        <div>
+          <div class="eyebrow">HOY</div>
+          <h3 id="todayTitle">Sesión diaria</h3>
+        </div>
+        <button class="ghost-btn" id="resetToday">Reiniciar</button>
+      </div>
+      <div class="current-week-chip" id="currentWeekChip"></div>
+      <p class="muted" id="todayGoal"></p>
+      <div id="taskList" class="task-list"></div>
+      <button class="primary-btn" id="completeSession">Completar sesión</button>
+    </section>
+
+    <section class="card" id="flashcards">
+      <div class="section-title-row">
+        <div>
+          <div class="eyebrow">VOCABULARIO DE ESTA SEMANA</div>
+          <h3>Tarjeta rápida</h3>
+        </div>
+        <span class="counter" id="cardCounter">1/10</span>
+      </div>
+      <button class="flashcard" id="flashcardBtn">
+        <span class="flash-main" id="flashMain"></span>
+        <span class="flash-sub" id="flashSub">Toca para ver la traducción</span>
+      </button>
+      <div class="button-row">
+        <button class="secondary-btn" id="listenCard">🔊 Escuchar</button>
+        <button class="secondary-btn" id="nextCard">Siguiente →</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title-row">
+        <div>
+          <div class="eyebrow">SPEAKING SEMANAL</div>
+          <h3>Habla sin leer</h3>
+        </div>
+      </div>
+      <p id="speakingPrompt" class="prompt-box"></p>
+      <div class="timer-row">
+        <button class="secondary-btn" id="timerBtn">Iniciar 5:00</button>
+        <span id="timerText">05:00</span>
+      </div>
+    </section>
+
+    <section class="card" id="pronunciation">
+      <div class="section-title-row">
+        <div>
+          <div class="eyebrow">PRONUNCIACIÓN</div>
+          <h3>Escucha · repite · corrige</h3>
+        </div>
+        <span class="counter" id="pronScore">—</span>
+      </div>
+      <p class="muted">Di la frase de esta semana. La app comparará lo que Chrome entiende con el texto correcto.</p>
+      <div class="pron-target" id="pronTarget"></div>
+      <div class="button-row">
+        <button class="secondary-btn" id="pronListen">🔊 Modelo</button>
+        <button class="primary-btn compact" id="pronSpeak">🎙️ Hablar</button>
+      </div>
+      <div class="pron-status" id="pronStatus">Pulsa “Hablar” cuando estés listo.</div>
+      <div id="pronWords" class="pron-words"></div>
+      <div class="heard-box" id="heardBox" hidden>
+        <span class="week-label">La app entendió:</span>
+        <div id="heardText"></div>
+      </div>
+      <p class="tiny muted">La puntuación gratuita mide coincidencia de reconocimiento de voz; no es todavía una evaluación fonética profesional.</p>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">FRASE OBJETIVO</div>
+      <h3 id="phraseWeekTitle">Esta semana</h3>
+      <div class="phrase-norwegian" id="phraseNo"></div>
+      <button class="secondary-btn" id="speakPhrase">🔊 Escuchar frase</button>
+    </section>
+
+    <section class="card" id="course">
+      <div class="section-title-row">
+        <div>
+          <div class="eyebrow">CURSO COMPLETO</div>
+          <h3>33 semanas · agosto → marzo</h3>
+        </div>
+        <button class="ghost-btn" id="jumpCurrent">Ir a la actual</button>
+      </div>
+      <p class="muted">Cada semana tiene gramática, vocabulario, speaking y un reto. Marca una semana cuando la hayas consolidado.</p>
+      <div id="weekList" class="week-list"></div>
+    </section>
+
+    <section class="card settings" id="settings">
+      <div class="eyebrow">AJUSTES</div>
+      <h3>Tu ritmo</h3>
+      <label>Minutos diarios
+        <input type="number" min="20" max="180" step="5" id="dailyMinutes" />
+      </label>
+      <button class="secondary-btn" id="saveSettings">Guardar</button>
+      <p class="tiny muted">El curso está fijado hasta el 31 de marzo de 2027. Tu progreso se guarda en este dispositivo.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-scroll="today">Hoy</button>
+    <button data-scroll="course">33 semanas</button>
+    <button data-scroll="settings">Ajustes</button>
+  </nav>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

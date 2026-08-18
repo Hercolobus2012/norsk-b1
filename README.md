@@ -1,19 +1,23 @@
-# Norsk B1 — MVP
+# Norsk B1 v3
 
-App móvil/PWA para seguir un plan de noruego A1→B1.
+Curso completo A1→B1 del 17 de agosto de 2026 al 31 de marzo de 2027.
 
-## Qué incluye
-- Sesión diaria configurable
-- Progreso, racha, sesiones y minutos
-- Speaking prompts con temporizador
-- Frases laborales en noruego + lectura por voz del móvil
-- Roadmap agosto→marzo
-- Datos guardados en el dispositivo (localStorage)
-- Instalación como PWA cuando se sirve por HTTPS
+## Incluye
+- 33 semanas completas
+- contenido específico de cada semana
+- 330 palabras/expresiones
+- gramática semanal
+- frase objetivo con pronunciación
+- speaking semanal
+- reto semanal
+- sesiones diarias que cambian según el día
+- flashcards
+- progreso, racha y semanas completadas
+- PWA offline
 
-## Cómo probarla
-1. Abre `index.html` en un navegador para ver la interfaz.
-2. Para instalarla como app real, súbela a un hosting estático HTTPS (Netlify, Vercel, GitHub Pages, etc.).
-3. En Android/Chrome: menú → “Añadir a pantalla de inicio” / “Instalar app”.
+## Actualizar GitHub
+Sobrescribe en la raíz del repositorio:
+index.html, app.js, styles.css, manifest.webmanifest, sw.js,
+icon-192.png, icon-512.png y README.md.
 
-No usa servidor ni cuenta: todo queda localmente en el dispositivo.
+GitHub Pages publicará los cambios automáticamente.
